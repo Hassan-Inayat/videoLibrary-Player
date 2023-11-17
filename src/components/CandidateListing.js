@@ -13,36 +13,36 @@ import colors from '../assets/colors/colors';
 
 const CandidateListing = props => {
   return (
-    <View style={styles.mainContainer}>
-      {props.fromSelect && (
-        <View style={styles.imageView}>
-          <TouchableOpacity onPress={props.onAddCandidate}>
-            <Image
-              source={
-                props.isSelected
-                  ? require('../assets/images/checkbox.png')
-                  : require('../assets/images/unchecked.png')
-              }
-              style={styles.imageStyle}
-            />
-          </TouchableOpacity>
+      <View style={styles.mainContainer}>
+        {props.fromSelect && (
+            <View style={styles.imageView}>
+              <TouchableOpacity onPress={props.onAddCandidate}>
+                <Image
+                    source={
+                      props.isSelected
+                          ? require('../assets/images/checkbox.png')
+                          : require('../assets/images/unchecked.png')
+                    }
+                    style={styles.imageStyle}
+                />
+              </TouchableOpacity>
+            </View>
+        )}
+        <View style={[styles.centerStyle,{paddingHorizontal: !props.fromSelect? wp(5) : 0}]}>
+          <Text style={styles.nameStyle} numberOfLines={1}>
+            {props.name}
+          </Text>
+          <Text
+              style={{
+                fontSize: wp(4),
+                marginTop: 1,
+                color: colors.unFocusColor,
+              }}
+              numberOfLines={1}>
+            {props.party}
+          </Text>
         </View>
-      )}
-      <View style={[styles.centerStyle,{paddingHorizontal: !props.fromSelect? wp(5) : 0}]}>
-        <Text style={styles.nameStyle} numberOfLines={1}>
-          {props.name}
-        </Text>
-        <Text
-          style={{
-            fontSize: wp(4),
-            marginTop: 1,
-            color: colors.unFocusColor,
-          }}
-          numberOfLines={1}>
-          {props.party}
-        </Text>
       </View>
-    </View>
   );
 };
 
